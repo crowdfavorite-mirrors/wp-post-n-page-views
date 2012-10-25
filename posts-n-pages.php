@@ -90,9 +90,11 @@ function wp_get_post_stats() {
 function wp_get_post_views($post_id) {
 	global $post_stats;
 
-	foreach ($post_stats as $p) {
-		if ($p['post_id'] == $post_id) {
-			return $p['views'];
+	if (!empty($post_stats)) {
+		foreach ($post_stats as $p) {
+			if ($p['post_id'] == $post_id) {
+				return $p['views'];
+			}
 		}
 	}
 }
